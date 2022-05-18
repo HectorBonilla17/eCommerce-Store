@@ -18,3 +18,7 @@ A Spring Boot Web Application that manages a database of products (name, price, 
 4. All users to view their current cart by selecting the "Cart" tab at the top of the website, which will display the products they have added (with their name, price, & quantity) and the total cost of all the products. 
 
 ![listCart](https://user-images.githubusercontent.com/31080342/168954027-2f7f8dfc-1090-4a84-9d12-c04ec2d2945c.png)
+
+5. An "ADMIN" user can sign into their account on either the "Product List" or "Cart" with the "Admin Login" button, which when click will redirect them to the login page.
+
+![signin](https://user-images.githubusercontent.com/31080342/168954175-98f3c884-a853-4dad-8a07-84e3f2f410e3.PNG)
