@@ -9,4 +9,6 @@ A Spring Boot Web Application that manages a database of products (name, price, 
  
 ![createProduct](https://user-images.githubusercontent.com/31080342/168953267-9ac2c912-c255-472e-9f73-25f36ae0e759.png)
 
-3. 
+3. All users can use the "Add To Cart" button, which will redirect them to a different html form where they can provide the quantity for the product and add that product to their cart.
+
+![addToCart](https://user-images.githubusercontent.com/31080342/168953624-a1441a1c-446b-453b-8c28-a7c9769596f5.png)
