@@ -4,6 +4,7 @@ A Spring Boot Web Application that manages a database of products (name, price, 
 1. The website allows all users to view all the current products in the database. In addition, an "ADMIN" user has to ability to update the selected product or delete them.
 
 ![list](https://user-images.githubusercontent.com/31080342/168953155-1a7c1a43-73f4-4061-b948-44ab85c1ac9f.png)
+![delete](https://user-images.githubusercontent.com/31080342/168953841-031772ec-3e91-4d76-a064-744049116769.PNG)
 
 2. An "ADMIN" user can create a new product using the "Add Product" button, which will redirect them to a different html form where they can provide the necessary data for the product. In addition, they can also update a product using the same form via clicking the "Update" button on the respective product.
  
