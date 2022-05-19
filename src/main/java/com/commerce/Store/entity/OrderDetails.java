@@ -21,17 +21,31 @@ public class OrderDetails {
 	private int quantity;
 	
 	private String dateOfOrder;
+	
+	private Integer accountId;
+	
+	private String username;
 
 	// ---------------------------------
 
 	public OrderDetails() {}
+	
+	public OrderDetails(String name, Double price, int quantity, String date, String username) {
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+		this.dateOfOrder = date;
+		this.username = username;
+}
 
-	public OrderDetails(String name, Double price, int quantity, String date) {
+	public OrderDetails(String name, Double price, int quantity, String date, int accountId, String username) {
 			this.name = name;
 			this.price = price;
 			this.quantity = quantity;
 			this.dateOfOrder = date;
-		}
+			this.accountId = accountId;
+			this.username = username;
+	}
 
 	// ---------------------------------
 
@@ -67,12 +81,28 @@ public class OrderDetails {
 		this.quantity = quantity;
 	}
 
-	public String getDate() {
+	public String getDateOfOrder() {
 		return dateOfOrder;
 	}
 
-	public void setDate(String date) {
-		this.dateOfOrder = date;
+	public void setDateOfOrder(String dateOfOrder) {
+		this.dateOfOrder = dateOfOrder;
 	}
 
+	public int getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
 }

@@ -16,12 +16,24 @@ public class OrderServiceImpl implements OrderService {
 	
 	@Autowired
 	private OrderRepository theOrderRepository;
-	
-	public void createOrderHistoryForCart(List<Product> theProducts) {
+
+	@Override
+	public void createOrderHistoryForCart(List<Product> theProducts, int id, String currentPrincipalName) {
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd HH:mm:ss");
 		for (Product product : theProducts) {
-			OrderDetails order = new OrderDetails(product.getName(), product.getPrice(), product.getQuantity(), dtf.format(LocalDateTime.now()));
+			OrderDetails order;
+			if(id < 1) {
+				order = new OrderDetails(product.getName(), product.getPrice(), product.getQuantity(), dtf.format(LocalDateTime.now()), currentPrincipalName);			
+			} else {
+				order = new OrderDetails(product.getName(), product.getPrice(), product.getQuantity(), dtf.format(LocalDateTime.now()), id, currentPrincipalName);			
+			}
+			
 			theOrderRepository.save(order);
 		}
+	}
+
+	@Override
+	public List<OrderDetails> findByAccountId(int id) {
+		return theOrderRepository.findByAccountId(id);
 	}
 }

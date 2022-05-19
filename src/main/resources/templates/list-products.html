@@ -23,9 +23,9 @@
 <body>
 
 	<ul class="nav nav-tabs nav-dark bg-dark">
-		<li class="nav-item"><a class="nav-link active" th:href="@{/list}">Product List</a>
-		</li>
+		<li class="nav-item"><a class="nav-link active" th:href="@{/list}">Product List</a></li>
 		<li class="nav-item"><a class="nav-link" th:href="@{/listCart}">Cart</a></li>
+		<li class="nav-item"><a class="nav-link" th:href="@{/orderHistory}">Order History</a></li>
 	</ul>
 
 	<div class="container-fluid ">
@@ -35,18 +35,24 @@
 	
 	<hr>
 	
-	<a th:href="@{/login}" 
+	<a th:href="@{/showFormForRegistration}" 
 		class="btn btn-primary btn-sm mb-3">
-		Admin Login
+		Register New Account
 	</a>
 	
-	<a  sec:authorize="hasRole('ADMIN')"
+	<a  th:if="${username == null}"
+		th:href="@{/login}" 
+		class="btn btn-primary btn-sm mb-3">
+		Login
+	</a>
+	
+	<a  sec:authorize="hasAnyAuthority('ADMIN', 'USER')"
 		th:href="@{/logout}" 
 		class="btn btn-primary btn-sm mb-3">
 		Logout
 	</a>
 	
-	<a  sec:authorize="hasRole('ADMIN')"
+	<a  sec:authorize="hasAuthority('ADMIN')"
 		th:href="@{/showFormForAdd}" 
 		class="btn btn-primary btn-sm mb-3">
 		Add Product
@@ -77,13 +83,13 @@
 						
 						
 					<!-- Add update button/link -->
-					<a sec:authorize="hasRole('ADMIN')"
+					<a sec:authorize="hasAuthority('ADMIN')"
 						th:href="@{/showFormForUpdate(productId=${tempProduct.id})}"
 						class="btn btn-info btn-sm"> 
 						Update </a> 
 						
 					<!-- Add delete button/link -->
-					<a sec:authorize="hasRole('ADMIN')"
+					<a sec:authorize="hasAuthority('ADMIN')"
 						th:href="@{/delete(productId=${tempProduct.id})}"
 						class="btn btn-sm btn-danger"
 						onclick="if (!(confirm('Are you sure you want to delete this product?'))) return false">
